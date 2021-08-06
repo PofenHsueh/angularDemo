@@ -1,9 +1,11 @@
 <ul>
-  <li class="pl-5">
-    <span (click)="toggleOpen()"  class="mr-2" [class.hidden]="!(this.item.subMenus && this.item.subMenus.length)">
-      <i [ngClass]="opened ?'fa fa-angle-down less-2 ml-2':'fa fa-angle-right more-2 ml-2'" ></i>
+  <li class="pl-5 py-2">
+    <span class="li-menu" (click)="toggleOpen()">
+      <a>{{item.funcName}}</a>
+      <span  class="mr-2" [class.hidden]="!(this.item.subMenus && this.item.subMenus.length)">
+        <i [ngClass]="opened ?'fa fa-angle-down less-2 ml-2':'fa fa-angle-right more-2 ml-2'"></i>
+      </span>
     </span>
-    <a (click)="toggleOpen()">{{item.funcName}}</a>
     <ul *ngIf="(this.item.subMenus && this.item.subMenus.length) && opened">
       <app-menu-list *ngFor="let list of item.subMenus" [item]="list"></app-menu-list>
     </ul>
